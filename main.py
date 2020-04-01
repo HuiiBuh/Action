@@ -8,3 +8,4 @@ with open('/home/runner/work/Action/Action/cookies.json') as file:
     print(text.replace(" ", ""))
     cookie = json.loads(text)
     cookie = json.load(file)
+    print(cookie)
