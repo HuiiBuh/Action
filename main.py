@@ -1,8 +1,6 @@
 
 import json
 import logging
+import webbrowser
 
-with open('/home/runner/work/Action/Action/cookies.json') as file:
-    text = file.read()
-    cookie = json.loads(text)
-    print(cookie)
+webbrowser.open_new('https://google.com')
