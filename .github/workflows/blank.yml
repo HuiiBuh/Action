@@ -30,7 +30,7 @@ jobs:
       run: echo '${{ secrets.cookies }}' > /home/runner/work/Action/Action/cookies.json && cat /home/runner/work/Action/Action/cookies.json
     
     - name: Create docker secret
-      run: sudo mkdir -p /var/run/secrets && sudo echo "test" > /var/run/secrets/application_id
+      run: sudo mkdir -p /var/run/secrets
     
     - name: Test docker secrets
       run: ls -al /var/run/secrets
