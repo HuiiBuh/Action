@@ -20,6 +20,15 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+      
+    - name: Create docker secret dir
+      run: sudo mkdir -p /var/run/secrets
+      
+    - name: Create application id
+      run: echo "wrong_id" | sudo tee /var/run/secrets/application_id
+    
+    - name: List docker secrets
+      run: ls -al /var/run/secrets/
    
     - name: Create secret
       run: echo '${{ secrets.cookies }}' > /home/runner/work/Action/Action/cookies.json && cat /home/runner/work/Action/Action/cookies.json
