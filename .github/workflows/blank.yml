@@ -31,10 +31,3 @@ jobs:
       
     - name: Run python
       run: python3 main.py
-    
-    - name: Run codacy-coverage-reporter
-      uses: mrfyda/codacy-coverage-reporter-action@master
-      with:
-        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        language: Python
-        r: coverage.xml
