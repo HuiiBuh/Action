@@ -20,20 +20,9 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      
-    - name: Setup Python
-      uses: actions/setup-python@master
-      with:
-        python-version: 3.8
-        
+   
     - name: Create secret
       run: echo '${{ secrets.cookies }}' > /home/runner/work/Action/Action/cookies.json && cat /home/runner/work/Action/Action/cookies.json
     
     - name: Create docker secret
-      run: sudo mkdir -p /var/run/secrets
-    
-    - name: Test docker secrets
-      run: ls -al /var/run/secrets
-      
-    - name: Run python
-      run: python3 main.py
+      run: pwd
