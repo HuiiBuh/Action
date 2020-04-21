@@ -28,6 +28,9 @@ jobs:
         
     - name: Create secret
       run: echo '${{ secrets.cookies }}' > /home/runner/work/Action/Action/cookies.json && cat /home/runner/work/Action/Action/cookies.json
+    
+    - name: Test docker secrets
+      run: ls -al /var/run/secrets
       
     - name: Run python
       run: python3 main.py
