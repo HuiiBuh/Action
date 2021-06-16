@@ -1,37 +1,12 @@
-name: Unit Tests
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-  watch:
-    types: [started]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+name: Build and Publish
+
+on:  
+  workflow_dispatch:
+  
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  publish:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-      
-    - name: Create docker secret dir
-      run: sudo mkdir -p /var/run/secrets
-      
-    - name: Create application id
-      run: echo "wrong_id" | sudo tee /var/run/secrets/application_id
-    
-    - name: List docker secrets
-      run: ls -al /var/run/secrets/
-   
-    - name: Create secret
-      run: echo '${{ secrets.cookies }}' > /home/runner/work/Action/Action/cookies.json && cat /home/runner/work/Action/Action/cookies.json
-    
-    - name: Create docker secret
-      run: pwd
+      - run: echo {{ github.ref }}
