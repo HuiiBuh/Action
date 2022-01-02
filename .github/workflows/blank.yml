@@ -9,4 +9,4 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.ref }}
+      - run: pwd
